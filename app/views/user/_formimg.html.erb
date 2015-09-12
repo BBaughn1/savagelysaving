@@ -1,0 +1,4 @@
+<%= form_for @post, url: root_path, html: { multipart: true } do |form| %>
+  <%= form.file_field :avatar %>
+  <%= image_tag @post.avatar.url(:medium) %>
+<% end %>
