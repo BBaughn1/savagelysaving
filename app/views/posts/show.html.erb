@@ -13,13 +13,10 @@
 
   <p class="body">
     <%= @post.body %>
-    <%= image_tag @user.avatar.url(:medium) %>
+    <%= image_tag @post.image.url(:medium) %>
   </p>
 
   <div id="comments">
-    <!-- <h2><%= @post.comments.count %> Comments</h2> -->
-    <!--<%= render @post.comments %>-->
     <%= render 'disqus' %>
-    <!--<%= render "comments/form" %>-->
   </div>
 </div>
