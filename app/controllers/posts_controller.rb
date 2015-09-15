@@ -11,6 +11,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    attr_accessor for 'image_file_name'
     if @post.save
       redirect_to @post
     else
