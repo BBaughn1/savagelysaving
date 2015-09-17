@@ -1,17 +1,19 @@
 class PostsController < ApplicationController
   # before_action :find_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @posts = Post.all.order('created_at DESC')
   end
 
   def new
     @post = Post.new
+    attr_accessor :image
   end
 
   def create
+    attr_accessor :image 
     @post = Post.new(post_params)
-    attr_accessor for 'image_file_name'
     if @post.save
       redirect_to @post
     else
@@ -29,8 +31,8 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-
-    if @post.update(params[:post].permit(:title, :body))
+    attr_accessor :image
+    if @post.update(params[:post].permit(:title, :body, :image))
       redirect_to @post
     else
       render 'edit'

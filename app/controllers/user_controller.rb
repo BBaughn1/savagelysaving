@@ -4,7 +4,7 @@ class UserController < ApplicationController
 	end
 
 	def destroy
-		@user.avatar = nil
+		@user.image = nil
 		@user.save
 	end
 
@@ -14,6 +14,6 @@ class UserController < ApplicationController
 	# Be sure to update your create() and update() controller methods.
 
 	def user_params
-	  params.require(:user).permit(:avatar)
+	  params.require(:user).permit(:image)
 	end
 end
